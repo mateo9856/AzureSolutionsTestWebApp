@@ -8,6 +8,35 @@
     Service Bus Test
 </div>
 
-<form>
-    <input type ="text" />
+<form method="post">
+    <div class="form-group">
+        <label>Connection string:</label>
+        <input class="form-control" type="text" name="connectionString" />
+    </div>
+    <div class="form-group">
+        <label>Queue name:</label>
+        <input class="form-control" type="text" name="queName" />
+    </div>
+    <div class="form-group">
+        <label>Message:</label>
+        <input class="form-control" type="text" name="message" />
+    </div>
+    <input type="submit" value="Create!" class="btn btn-primary"/>
+</form>
+
+<br />
+
+<div>
+    Service Bus Receiver
+</div>
+<form method="post" asp-page-handler="Receive">
+    <div class="form-group">
+        <label>Connection string:</label>
+        <input class="form-control" type="text" name="connectionString" />
+    </div>
+    <div class="form-group">
+        <label>Queue name:</label>
+        <input class="form-control" type="text" name="queName" />
+    </div>
+    <input type="submit" value="Start Receive!" class="btn btn-primary"/>
 </form>
