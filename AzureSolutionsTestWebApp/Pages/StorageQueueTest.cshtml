@@ -1,0 +1,38 @@
+﻿@page
+@model AzureSolutionsTestWebApp.Pages.StorageQueueTestModel
+@{
+    ViewData["Title"] = "Storage Queue Tester";
+}
+
+<h2>Storage Queue test</h2>
+
+<form method="post" asp-page-handler="Insert">
+    <div class="form-group">
+        <label>Connection string:</label>
+        <input class="form-control" type="text" name="connectionString" />
+    </div>
+    <div class="form-group">
+        <label>Queue name:</label>
+        <input class="form-control" type="text" name="queName" />
+    </div>
+    <div class="form-group">
+        <label>Message:</label>
+        <input class="form-control" type="text" name="message" />
+    </div>
+    <input type="submit" value="Start Receive!" class="btn btn-primary"/>
+</form>
+
+<br />
+<h2>Peek message</h2>
+<form method="get" asp-page-handler="Peek">
+    <input type="submit" value="Start Peek!" class="btn btn-primary" />
+</form>
+
+<br />
+<h2>Dequeue</h2>
+<form method="get" asp-page-handler="Peek">
+    <div class="form-group">
+        <input class="form-control" type="number" placeholder="Message count" name="count" />
+    </div>
+    <input type="submit" value="Start Peek!" class="btn btn-primary" />
+</form>
