@@ -1,4 +1,5 @@
 using AzureServices;
+using AzureSolutionsTestWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -6,19 +7,21 @@ namespace AzureSolutionsTestWebApp.Pages
 {
     public class ServiceBusClientTestModel : PageModel
     {
+        [BindProperty]
+        public MessageFormModel Model { get; set; }
         public void OnGet()
         {
         }
 
-        public void OnPostReceive(string connectionString, string queName)
+        public void OnPostReceive()
         {
             Console.WriteLine();
         }
 
-        public async void OnPost(string connectionString, string queName, string message) {
-            if(!string.IsNullOrEmpty(connectionString) && !string.IsNullOrEmpty(message) && !string.IsNullOrEmpty(queName)) {
-                var client = new SerBusClient(connectionString, queName);
-                await client.CreateMessage(message);
+        public async void OnPost() {
+            if(!string.IsNullOrEmpty(Model.ConnectionString) && !string.IsNullOrEmpty(Model.Message) && !string.IsNullOrEmpty(Model.QueName)) {
+                var client = new SerBusClient(Model.ConnectionString, Model.QueName);
+                await client.CreateMessage(Model.Message);
             }
         }
     }

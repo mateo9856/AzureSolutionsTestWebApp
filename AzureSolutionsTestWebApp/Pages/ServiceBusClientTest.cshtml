@@ -11,15 +11,15 @@
 <form method="post">
     <div class="form-group">
         <label>Connection string:</label>
-        <input class="form-control" type="text" name="connectionString" />
+        <input class="form-control" type="text" name="Model.ConnectionString" />
     </div>
     <div class="form-group">
         <label>Queue name:</label>
-        <input class="form-control" type="text" name="queName" />
+        <input class="form-control" type="text" name="Model.QueName" />
     </div>
     <div class="form-group">
         <label>Message:</label>
-        <input class="form-control" type="text" name="message" />
+        <input class="form-control" type="text" name="Model.Message" />
     </div>
     <input type="submit" value="Create!" class="btn btn-primary"/>
 </form>
@@ -32,11 +32,11 @@
 <form method="post" asp-page-handler="Receive">
     <div class="form-group">
         <label>Connection string:</label>
-        <input class="form-control" type="text" name="connectionString" />
+        <input class="form-control" type="text" name="Model.ConnectionString" />
     </div>
     <div class="form-group">
         <label>Queue name:</label>
-        <input class="form-control" type="text" name="queName" />
+        <input class="form-control" type="text" name="Model.QueName" />
     </div>
     <input type="submit" value="Start Receive!" class="btn btn-primary"/>
 </form>
