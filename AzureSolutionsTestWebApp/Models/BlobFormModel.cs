@@ -4,5 +4,6 @@
     {
         public string AccountName { get; set; }
         public string ContainerName { get; set; }
+        public IFormFile UploadedFile { get; set; }
     }
 }
