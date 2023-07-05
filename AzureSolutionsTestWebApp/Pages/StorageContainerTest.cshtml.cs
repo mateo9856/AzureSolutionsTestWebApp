@@ -60,8 +60,8 @@ namespace AzureSolutionsTestWebApp.Pages
             try
             {
                 var client = new AzureStorageClient(Model.AccountName);
-                //TODO:Set method to use IFormFile as a Parameter
-                await client.UploadToContainerAsync(Directory.GetCurrentDirectory(), Model.UploadedFile.FileName);
+
+                await client.UploadToContainerAsync(Model.UploadedFile);
 
             } catch(Exception ex)
             {

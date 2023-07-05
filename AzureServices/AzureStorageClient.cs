@@ -1,6 +1,7 @@
 ﻿using Azure.Identity;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,11 +59,10 @@ namespace AzureServices
 
         public async void SetContainerMetaData(IDictionary<string, string> metadata, string containerName) => await GetContainerClient(containerName).SetMetadataAsync(metadata);
 
-        public async Task UploadToContainerAsync(string folderDirectory, string file)
+        public async Task UploadToContainerAsync(IFormFile file)
         {
-            var pathDirectory = Path.Combine(folderDirectory, file);
             var blobClient = GetBlobClient(LastBlobName);
-            using (FileStream fs = File.OpenRead(pathDirectory))
+            using (Stream fs = file.OpenReadStream())
             {
                 await blobClient.UploadAsync(fs);
                 fs.Close();
